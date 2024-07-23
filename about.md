@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 # Pig-Min
-Pig-Min은 인디게임에 대해 다뤘던 웹진/블로그 입니다. 원래 사이트의 소개는 [Post Indie Gaming에 대해 (About Us)](link tt/_posts/2006-10-13-13.html)를 참조하세요.
+Pig-Min은 인디게임에 대해 다뤘던 웹진/블로그 입니다. 원래 사이트의 소개는 [Post Indie Gaming에 대해 (About Us)](/tt/13)를 참조하세요.
 
 # 이 사이트는?
 
