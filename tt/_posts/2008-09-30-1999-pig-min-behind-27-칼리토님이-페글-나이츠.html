@@ -1,0 +1,37 @@
+---
+layout: post
+title: "Pig-Min Behind 27. 칼리토님이 [페글 나이츠]를 리뷰하니, 스토리베리 라운지는 쑥대밭. & 어떻게 만들었는지 팁 설명."
+date: "2008-09-29 22:58:00+09:00"
+categories: "칼럼/Pig-Min Behind"
+redirect_from: /tt/1999
+---
+
+
+<font style="font-family: 'Arial','helvetica','sans-serif';" size="2">아시다시피 며칠 전 <a href="/tt/1994" target="_blank">칼리토님께서 [페글 나이츠]를 스토리베리로 리뷰</a>하셨는데, 그 후 스토리베리 라운지가...<br><br>일단 스토리베리로 만든 컨텐츠 보시고.<br><br></font><div style="text-align: center; font-family: 'Arial','helvetica','sans-serif';"><font size="2"><OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" width="480" height="390" ><param name="allowFullScreen" value="true"><param name="movie" value="http://www.storyberry.com/BerryPlayer.swf?gameno=5593"><param name="quality" value="high"><param name=menu value=false><EMBED src="http://www.storyberry.com/BerryPlayer.swf?gameno=5593" allowFullScreen="true" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="480" height="390"></EMBED></OBJECT><br>나름대로 잘 만들었다고 칭찬받았다. 헤헷. &gt;.&lt;</font></div><font style="font-family: 'Arial','helvetica','sans-serif';" size="2"><br>여기서 끝내면 아쉬우니, 간단하게 위 컨텐츠 제작에 사용된 명령 / 기법 설명.<br>아래 명령어는 고급 에디터 '태그' 메뉴에서 더블 클릭으로 불러올 수 있습니다. <br><br><br>---------------------------------<br><br><br><strong>1. 씬 나누기.</strong><br><br>어지간하면 0번 씬에서 모두 만들어도 됩니다. 하지만 씬 우측 상단에 붙은 '미리보기'는 '씬별로 미리보기'를 시켜주는 것. (스토리베리 개발진은 구분하는 단어를 써두실 것을 권장.) 그래서 좀 길거 같으면, 씬을 나누면서 가는 것도 좋습니다. 0번부터 3번까지 4개의 씬을 사용했고, 좌측 메뉴 중 맨 위에 있는 '씬'에서 -&gt; 맨 아래 있는 '추가'를 눌러 씬을 추가했습니다.<br><br>주의사항. 0번 씬이 끝날 때 1번 씬으로 자동으로 넘어가지 않는데요. 다음 명령어를 넣으면 1번 씬으로 날아갑니다. (숫자만 바꾸면 다른 씬 이동 가능. 선택지 등에서 씬 포탈 태우는 것도 물론 가능.)<br><br><strong>&lt;jump scene="1"/&gt;</strong><br><br><br><strong>2. 이미지 보이기 / 가리기.</strong><br><br>이미지를 보이고 가리는 기능은, 들어가서 메뉴의 기본 설명만 보셔도 아실 수 있는데, 그래도 적어봅니다.<br><br>이게 이미지 보이기.<br><br><strong>&lt;image id="img_0_1" source="라운지.jpg" x="0" y="-3" width="479" height="304"/&gt;</strong><br><br>x점 y점 시작, 크기는 width height. 사실 이건 좌측 메뉴 중, '미디어'의 '이미지'에서 올려넣고 빼면 조절해주는 창이 뜨기 때문에, 굳이 아실 필요는 없지만... 아직까지 일단 올린걸 조절하는 기능은 없기 때문에, x점 y점 조절 숫자는 써주실 필요가 있습니다. (원 크기 500 * 400 그림을 400 * 300으로 보여주는 것도 width height 숫자 조절하면 가능!) image id라는 것은, 노출된 그림에 지정된 id로써, 아래에서 설명할 다른 부분들에서 주로 쓰입니다. <br><br>노출한 그림 가리기는 다음 명령어.<br><br><strong>&lt;hide id="img_0_1"/&gt;</strong><br><br>위에서 지정한 id를 넣으면 됩니다. 쉽죠? <br><br>한가지 특이점이 있다면, 플래시의 특성상 그림 지우고 넣는 과정에 깜빡이가 일어납니다. 같은 크기의 그림을 넣는다면 나름대로 꽁수를 쓸 수가 있는데요. <strong>나중의 그림을 먼저 노출한 후, 먼저의 그림을 지우는 식</strong>으로 하면 됩니다. 이번에는 크기가 다른 것들을 쓰느라 그 기법을 쓰지 못했는데... <a href="http://www.storyberry.com/33318" target="_blank">테크데모격인 컨텐츠</a>는 여기서 보시면 됩니다. <br><br><br><strong>3. 그림 움직이기.</strong><br><br>위 내용들은 들어가보시면 대충 아실 수 있는 것들이고, 여기부터를 고급기능이라 오해(?)하실 수 있는데요. 알고보면 생각보다 쉽습니다. 원하는 위치를 정확히 잡기가 힘들어 시행착오를 겪어야 할 뿐이죠. (이 부분 쉽게 하는 것도 스토리베리 개발자분들은 염두를!)<br><br><strong>&lt;move target="img_0_5" duration="1000" xTo="50" yTo="69"/&gt;</strong><br><br>그림의 ID는 올릴때부터 생기는 것이고, img_0_5도 그렇게 생긴거니 통과. 2번에서 얘기한 이미지 보이기에서 지정됩니다. <br><br>duration은 지속시간. 즉 움직이는데 걸리는 총 시간을 뜻합니다. 단위는 ms로써 1000 = 1초. 즉 1초에 걸쳐 움직인다는 뜻입니다. 다른 명령어에서도 항상 쓰고 있으니, 알아두시면 좋습니다.<br><br>x점과 y점은, 시작점은 애초부터 적지 않습니다. 그림을 원래 올리면서 지정된 자리, 혹시 이미 움직였다면 움직여서 가 있던 자리에서 시작됩니다. 즉 <strong>그림 이동의 시작점은 여기서 전혀 지정하지 않습니다</strong>.<br><br><strong>이동의 도착점이 xTo와 yTo로 지정됩니다</strong>. 단지 에디터에서 직관적으로 볼 수 있는 부분 미리보기가 아직은 없기 때문에, 노가다를 좀 해야 한다는게 아쉬운데요. 칼처럼 잡고 하실게 아니면, 대충 눈대중으로 어림잡을 수 있습니다. <br><br>그리고 이번에는 쓰지 않았지만, 중요한 팁 하나. <strong>화면보다 훨씬 큰 그림을 넣고, 화면 안 쪽 &amp; 바깥 쪽으로 이동이 가능합니다</strong>. 화면을 480 * 360으로 잡았어도, 그보다 훨씬 큰 그림인 800 * 600 같은걸 넣을 수 있어요. 또한 화면 안쪽인 x = 200 / y = 200 정도가 아니라, <strong>화면 바깥쪽인 x = - 50 / y = - 39 같은 음수도 지정 가능</strong>. <strong>화면 밖에 있던 것을 안으로 끌어다 보여줄 수도 있고, 안의 것을 밖으로 스크롤해 사라지게 하는 것도 가능합니다.</strong> 이걸 잘 쓴게 Miniberry님이 <a href="/tt/1948" target="_blank">2자면담 이벤트 참여</a>를 위해 만든 <a href="http://miniberry.tistory.com/102" target="_blank">[아자다(Azada)] 리뷰</a>인데요. 맨 마지막 연출을 영화 크레딧 올라가는 것 처럼 했는데, 이게 큰 그림을 만들어 밖에서 안으로 스크롤하는 방식을 사용한 것입니다. 이렇게 여러가지 응용이 가능하죠. <br><br><br><strong>4. 그림 fade in / fade out.</strong><br><br>'스토리 포토'에서는 기본 장착이지만, '고급 에디터'에서는 별도 명령어로 지정해줘야 합니다. 단 fade in / fade out의 속도를 조절 가능하죠.<br><br><strong>&lt;image id="img_0_6" source="스토리베리마크.jpg" x="232" y="63" width="221" height="162"/&gt;</strong><br style="font-weight: bold;"><strong>&lt;fade target="img_0_6" alphaFrom="0" alphaTo="1" duration="1000"/&gt;</strong><br><br>그림 ID나 duration은 아시겠죠? 다른 부분은 alphaFrom / alphaTo인데요. <strong>0이 공백 / 1이 꽉찬 그림</strong>입니다. 즉 공백으로부터 꽉찬 그림까지, 1000ms(=1초) 동안 fade in 하는 겁니다. 0과 1의 숫자를 반대로 하면, fade out이 되는 거죠. <br><br>오히려 이 명령어는, 그림을 노출하거나 / 움직이는 것과 달리, 별도의 미리보기의 필요성이 비교적 적습니다. 물론 좀 더 정밀하게 조절하려면 노가다를 해야겠지만, 대충 duration = 1000 지정하면 되거든요. (그래도 좀 더 편하고 싶으니, 스토리베리 개발자 분들은 분발을!)<br><br><br><strong>5. 그림 확대 / 축소.</strong><br><br>이 기능은 이번에는 쓰지 않았고, <a href="/tt/1979" target="_blank">슈퍼피그민RPG</a>때 썼던 겁니다. (Venture Arctic attack!)<br><br><strong>&lt;resize target="img_3_0" duration="1000" widthTo="1280" heightTo="960"/&gt;</strong><br style="font-weight: bold;"><strong>&lt;move target="img_3_0" duration="1000" xTo="-4" yTo="-400"/&gt;</strong><br><br>아래 move 명령어는, 당시 흰물개(...가 아니었지 -_-) 그림 키운 후 움직였던 효과라 같이 쓴 거고, 확대는 resize만으로 됩니다. duration 지속기간 아실테고, widthTo / HeightTo가 얼마나 키울거냐는 거. 물론 숫자를 작게하면 줄이는 것도 가능합니다. (역시나 쉽게 만들고 싶으니 스토리... 아 이제 그만.)<br><br><br>-----------------------------<br><br><br>제가 위의 컨텐츠 만들면서 쓴, 스토리베리 고급 에디터의 기능 몇 개를 설명해봤습니다. 솔직히 생각보다 쉬워요. 문제는 <strong>그게 쉽다는 사실을 전혀 알려주지 못하고 있다는 것</strong>입니다. (노가다를 줄여주지 못한다는 것도 아쉽지만.) <br><br>저 명령어들을 쓰면, 그림 보여주고 / 지우고 / 움직이고 / fade in &amp; out 하고 / 확대 &amp; 축소 하는거, 누구나 쉽게 할 수 있습니다. 스토리베리 고급 에디터, 생각보다 쉬워요. <br><br>그러니까...<br><br></font><div style="text-align: center; font-family: 'Arial','helvetica','sans-serif';"><font size="2"><a href="/tt/1948" target="_blank"><img src="/tt/attach/1/1393494561.jpg"><br>Pig-Min &amp; 스토리베리, 2자면담 이벤트 참여!</a><br></font></div><font style="font-family: 'Arial','helvetica','sans-serif';" size="2"><br>P.S. : 우리 <strong>구지성</strong>님 컨텐츠도 만들어야 할텐데, 사진에는 찍은 분의 저작권과 찍힌 분의 초상권이 있으니, 조금 난감한데... (라고 말하지만 이미 부끄러운 과거가 <a href="http://www.storyberry.com/story/28829" target="_blank">스토리베리 홈페이지</a>에 하나 -_-)<br></font>
+
+
+<div id="ttml-footnote-container"></div>
+
+<div class="comments">
+    <h2>Comments</h2>
+    
+        No comments.
+    
+    
+</div>
+
+<div class="comments">
+    <h2>Trackbacks</h2>
+    
+        No trackbacks.
+    
+    
+</div>
+
+
+<div class="about-archive">
+    이 페이지는 <a href="/about">백업으로부터 자동 생성</a>된 페이지입니다. <br />
+    <p>
+        <a target="_blank" href="https://web.archive.org/web/20211231/http://pig-min.com/tt/1999">[archive.org 에서 보기]</a>
+    </p>
+</div>
