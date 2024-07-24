@@ -32,6 +32,9 @@ plugins:
 minima:
   date_format: "%Y-%m-%d %H:%M:%S"
 
+  social_links:
+     - { platform: twitter, user_url: "https://twitter.com/pigminkorea" }
+
 header_pages:
   - about.md
   - pog.md
