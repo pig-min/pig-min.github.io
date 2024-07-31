@@ -22,7 +22,7 @@ Pig-Min은 2015년 정도까지 운영되었던 Textcube 기반 블로그 입니
 * 사이트 운영 비용을 최대한 절약하고 싶음
 * 아카이브 용도의 사이트이기 때문에 이것저것 타협 가능
   * 포스트 작성 편의성 희생
-    (제가 기술지원을 하긴 하지만, 사이트의 주 운영자는 기술자가 아닙니다)
+    (제가 기술지원을 하긴 하지만, 주 컨텐츠 작성자=광님이 글을 쓰기엔 텍스트큐브가 훨씬 편할 것입니다.)
   * 댓글/트랙백 기능이 없어도 됨
 
 이런 점을 종합하여 Textcube 백업 데이터를 Jekyll 포스트로 변환해주는 툴인 [textcube_to_jekyll](http://github.com/iAmGhost/textcube_to_jekyll)을 만들어 [GitHub Pages](https://pages.github.com)를 통해 호스팅 하게 되었습니다.
